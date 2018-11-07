@@ -1,2 +1,3 @@
-class Investimento < ApplicationRecord::Base
+class Investimento < ApplicationRecord
+
 end

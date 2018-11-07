@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20181107174636) do
 
   create_table "investimentos", force: :cascade do |t|
     t.string   "name"
-    t.integer  "type"
+    t.integer  "nivel"
     t.decimal  "price"
     t.decimal  "gain"
     t.datetime "created_at", null: false

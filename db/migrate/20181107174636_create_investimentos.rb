@@ -2,7 +2,7 @@ class CreateInvestimentos < ActiveRecord::Migration[5.0]
   def change
     create_table :investimentos do |t|
       t.string :name
-      t.integer :type
+      t.integer :nivel
       t.decimal :price
       t.decimal :gain
 
