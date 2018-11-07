@@ -80,6 +80,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-DATABASE_URL="postgres://uviyhrkbrekodf:ff86326299b6bba0f430a1ab9150739e315a254fab1aa88187605af45797eb78@ec2-54-225-115-234.compute-1.amazonaws.com:5432/d2d6o2sl5eam5c"
 production:
+  DATABASE_URL = "postgres://uviyhrkbrekodf:ff86326299b6bba0f430a1ab9150739e315a254fab1aa88187605af45797eb78@ec2-54-225-115-234.compute-1.amazonaws.com:5432/d2d6o2sl5eam5c"
   url: <%= ENV['DATABASE_URL'] %>
