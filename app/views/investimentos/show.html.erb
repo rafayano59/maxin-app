@@ -2,7 +2,7 @@
 <hr>
 
 <h4>Dados:</h4><br/>
-<p>Valor: <%= @investimento.price %></p>
+<p>Valor: <%= number_to_currency(@investimento.price) %></p>
 <p>Lucro(%): <% if @investimento.nivel == 1 %>
   5%
   <% elsif @investimento.nivel == 2 %>
@@ -11,5 +11,8 @@
   15%
   <% end %>
 </p>
-<p>Lucro(R$): <%= @investimento.gain %></p>
-<p>Recebido em: <%= @investimento.created_at %></p>
+<p>Lucro(R$): <%= number_to_currency(@investimento.gain) %></p>
+<p>Recebido em: <%= @investimento.created_at.to_date %></p>
+<%  @investimento.dataretirada = @investimento.created_at.to_date + 30 %>
+<%  @investimento.save %>
+<p>Retirada (30 dias após o recebimento): <%= @investimento.dataretirada.to_date %></p>

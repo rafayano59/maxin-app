@@ -16,8 +16,8 @@ class InvestimentosController < ApplicationController
       @investimento.nivel = 3
       @investimento.gain = @investimento.price * 0.15
     end
+    
     if @investimento.save
-      
       flash[:notice] = "Seu investimento foi recebido! Agradecemos a confiança."
       redirect_to investimento_path(@investimento)
     else
@@ -27,6 +27,20 @@ class InvestimentosController < ApplicationController
   
   def show
     @investimento = Investimento.find(params[:id])    
+  end
+  
+  def edit
+    @investimento = Investimento.find(params[:id])
+  end
+  
+  def update
+    @investimento = Investimento.find(params[:id])
+    if @investimento.update(investimento_params)
+      flash[:notice] = "Investimento atualizado"
+      redirect_to investimento_path(@investimento)
+    else
+      render 'edit'
+    end
   end
   
   private
