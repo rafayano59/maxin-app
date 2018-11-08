@@ -1,0 +1,15 @@
+<h1>Investimento: <%= @investimento.name.capitalize %></h1>
+<hr>
+
+<h4>Dados:</h4><br/>
+<p>Valor: <%= @investimento.price %></p>
+<p>Lucro(%): <% if @investimento.nivel == 1 %>
+  5%
+  <% elsif @investimento.nivel == 2 %>
+  10%
+  <% elsif @investimento.nivel == 3 %>
+  15%
+  <% end %>
+</p>
+<p>Lucro(R$): <%= @investimento.gain %></p>
+<p>Recebido em: <%= @investimento.created_at %></p>

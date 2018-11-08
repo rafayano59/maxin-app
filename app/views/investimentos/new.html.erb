@@ -1,0 +1,32 @@
+<h1>Formulário de Investimento:</h1>
+
+<hr>
+
+<% if @investimento.errors.any? %>
+  <h3>Os seguintes erros foram encontrados:</h3>
+  <ul>
+    <% @investimento.errors.full_messages.each do |msg| %>
+      <li>
+        <% if msg == "Nivel can't be blank" %>
+          <p>Valor investido não compatível.</p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @investimento do |f| %>
+<p>
+<%= f.label :name %> (Título para melhor memorização)<br/>
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :price %> (máx: R$5000,00)<br/>
+<%= f.number_field :price %><br/>
+R$ 0~500 > 5% lucro<br/> 
+R$ 500~1000 > 10% lucro<br/> 
+acima de R$ 1000 > 15% de lucro<br/> 
+</p><br/>
+<p>
+<%= f.submit %>
+</p>
+<% end %>
