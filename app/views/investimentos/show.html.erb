@@ -1,7 +1,7 @@
 <h1>Investimento: <%= @investimento.name.capitalize %></h1>
 <hr>
 
-<h4>Dados:</h4><br/>
+<h4>Dados:</h4>
 <p>Valor: <%= number_to_currency(@investimento.price) %></p>
 <p>Lucro(%): <% if @investimento.nivel == 1 %>
   5%
@@ -16,3 +16,5 @@
 <%  @investimento.dataretirada = @investimento.created_at.to_date + 30 %>
 <%  @investimento.save %>
 <p>Retirada (30 dias após o recebimento): <%= @investimento.dataretirada.to_date %></p>
+<%= link_to "Editar", edit_investimento_path(@investimento) %> |
+<%= link_to "Voltar", investimentos_path %>

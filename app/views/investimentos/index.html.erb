@@ -1,0 +1,37 @@
+<h1>Listando todos investimentos</h1>
+<hr>
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Lucro(%)</th>
+        <th>Lucro(R$)</th>
+        <th>Recebimento</th>
+        <th>Retirada</th>
+    </tr>
+    
+    <% @investimentos.each do |investimento| %>
+    <tr>
+        <td><%= investimento.name %></td>
+        <td><%= number_to_currency(investimento.price) %></td>
+        <td>
+          <% if investimento.nivel == 1 %>
+            5%
+          <% elsif investimento.nivel == 2 %>
+            10%
+          <% elsif investimento.nivel == 3 %>
+            15%
+          <% end %>
+        </td>
+        <td><%= number_to_currency(investimento.gain) %></td>
+        <td><%= investimento.created_at.to_date %></td>
+        <td><%= investimento.dataretirada.to_date %></td>
+        <td><%= link_to 'Editar', edit_investimento_path(investimento) %></td>
+        <td><%= link_to 'Mostrar', investimento_path(investimento) %></td>
+        <td><%= link_to 'Excluir', investimento_path(investimento), method: :delete, data: {confirm: "Tem certeza que deseja realizar a exclusão?"} %></td>
+    </tr>
+    <% end %>
+</table>
+<br>
+<%= link_to 'Novo investimento', new_investimento_path %>
