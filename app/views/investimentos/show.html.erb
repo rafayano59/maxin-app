@@ -2,7 +2,7 @@
 <hr>
 
 <h4>Dados:</h4>
-<p>Valor: <%= number_to_currency(@investimento.price) %></p>
+<p>Valor(R$): <%= number_to_currency(@investimento.price) %></p>
 <p>Lucro(%): <% if @investimento.nivel == 1 %>
   5%
   <% elsif @investimento.nivel == 2 %>
